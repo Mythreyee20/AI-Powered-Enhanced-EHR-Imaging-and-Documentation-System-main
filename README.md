@@ -1,80 +1,136 @@
-🏥 AI-Powered Enhanced EHR Imaging & Documentation System
-📘 Overview
+# 🏥 AI-Powered Enhanced EHR Imaging & Documentation System
 
-This project integrates healthcare data, diagnostic imaging, and automated documentation into a single intelligent pipeline.
-It processes Electronic Health Record (EHR) data, enhances medical images, and generates structured clinical summaries — improving accuracy, readability, and efficiency in medical documentation.
+## 📘 Overview
+This project integrates **Electronic Health Records (EHR)**, **medical imaging**, and **AI-driven documentation** into one intelligent system.  
+It automates healthcare workflows — from **data preprocessing** to **image enhancement**, **clinical summary generation**, and **predictive analytics** — improving medical efficiency, clarity, and decision-making.
 
-⚙️ Module 1: EHR Data Integration & Preprocessing
-🔍 Description
+---
 
-This module focuses on collecting, cleaning, and organizing healthcare data including patient details, symptoms, lab results, and diagnoses.
-It ensures consistency and prepares structured inputs for the later modules.
+## ⚙️ Module 1: EHR Data Integration & Preprocessing
 
-💡 Key Steps
+### 🔍 Description
+This module collects, cleans, and structures patient data (demographics, symptoms, lab results, diagnoses).  
+It prepares a unified dataset for downstream AI analysis.
 
-Import and preprocess raw healthcare datasets
+### 💡 Key Steps
+- Import and preprocess raw healthcare datasets  
+- Handle missing or inconsistent values  
+- Normalize and format data  
+- Store unified EHR data for analysis  
 
-Handle missing or inconsistent values
+### 📂 Output
+`healthcare_dataset.csv` – Cleaned and merged dataset  
 
-Normalize and format data for analysis
+---
 
-Store a unified dataset for downstream processing
+## 🧠 Module 2: Medical Image Enhancement
 
-📂 Output
+### 🔍 Description
+This module enhances diagnostic images such as **X-rays**, **CT scans**, or **MRI scans** using deep learning and image-processing filters.  
+It ensures clearer visuals for accurate clinical interpretation.
 
-healthcare_dataset.csv – Cleaned, merged dataset ready for use
+### 💡 Key Steps
+- Load medical images  
+- Apply enhancement (contrast, noise reduction, sharpening)  
+- Save enhanced results  
 
-🧠 Module 2: Medical Image Enhancement
-🔍 Description
+### 📂 Output
+`Xray_enhanced/` – Folder containing improved diagnostic images  
 
-This module enhances diagnostic images (e.g., X-rays or scans) to improve clarity for medical interpretation.
-It applies a combination of image-processing filters to reduce noise and sharpen key visual details.
+---
 
-💡 Key Steps
+## 🤖 Module 3: Intelligent Clinical Summary Generation
 
-Load medical images from the dataset
+### 🔍 Description
+This module automatically generates **concise clinical summaries** by combining EHR data, image findings, and ICD-10 codes.  
+It uses an **LLM (Hugging Face model)** to write context-aware medical reports.
 
-Apply enhancement techniques (contrast adjustment, noise reduction, sharpening)
+### 💡 Key Steps
+- Read preprocessed data and image results  
+- Map conditions with ICD-10 codes  
+- Generate short, structured clinical summaries  
+- Save reports as CSV and text files  
 
-Save processed images in a structured directory
+### 📂 Output
+`Final_Clinical_Note_All.csv` – AI-generated summaries with ICD-10 mappings  
 
-📂 Output
+---
 
-Xray_enhanced/ – Folder containing enhanced diagnostic images
+## 📊 Module 4: Predictive Analytics & Visualization Dashboard
 
-🤖 Module 3: Intelligent Clinical Summary Generation
-🔍 Description
+### 🔍 Description
+This module transforms raw and processed data into **insightful analytics and real-time dashboards** using **Streamlit** and **Matplotlib/Plotly**.  
+It empowers doctors and hospitals with quick visual decision support.
 
-This module automatically generates concise clinical summaries using patient details, lab results, and ICD-10 disease mappings.
-It leverages an open-source large language model (LLM) for text generation to produce structured and human-readable notes.
+### 💡 Key Features
+- Predict potential diseases or risk levels based on lab values  
+- Display patient history, image status, and generated reports  
+- Interactive graphs for diagnosis trends, lab results, and predictions  
+- Real-time EHR visualization  
 
-💡 Key Steps
+### 💡 Key Steps
+- Load AI-processed data and clinical notes  
+- Use ML model to predict patient risk categories  
+- Visualize with Streamlit (charts, filters, summary cards)  
 
-Read patient data and corresponding enhanced images
+### 📂 Output
+- `Prediction_Report.csv` – Predicted outcomes and probabilities  
+- Live dashboard at `http://localhost:8501`  
 
-Match diagnoses with ICD-10 medical codes
+---
 
-Generate short, context-aware clinical summaries
+## 🧩 Tech Stack
 
-Save results for reporting and analysis
+| Category | Technologies Used |
+|-----------|------------------|
+| **Frontend** | Streamlit, HTML/CSS |
+| **Backend** | FastAPI |
+| **AI / ML** | TensorFlow, Keras, Hugging Face Transformers |
+| **Data Processing** | Pandas, NumPy |
+| **Image Processing** | OpenCV |
+| **Visualization** | Matplotlib, Plotly |
+| **Dataset** | ICD-10 Medical Dataset |
 
-📂 Output
+---
 
-Final_Clinical_Note_All.csv – Auto-generated summaries with ICD-10 and image references
+## 🚀 How to Run
 
-🧩 Tech Stack
+### 1️⃣ Install dependencies
+```bash
+pip install -r requirements.txt
 
-Python 3
+2️⃣ Run the backend
+python Backend.py
 
-Pandas, NumPy, OpenCV
+3️⃣ Run the Streamlit dashboard
+streamlit run Streamlit.py
 
-Text Generation using Open-Source LLMs
+📁 Folder Structure
+AI-Powered-Enhanced-EHR-Imaging-and-Documentation-System
+│
+├── Backend.py
+├── Streamlit.py
+├── ehr_model/
+│   ├── xray_enhancer_model.h5
+│   ├── prediction_model.pkl
+│
+├── data/
+│   ├── healthcare_dataset.csv
+│   ├── Final_Clinical_Note_All.csv
+│   ├── Prediction_Report.csv
+│
+├── Xray_enhanced/
+│   └── Enhanced images
+│
+└── README.md
 
-ICD-10 Medical Classification Dataset
+🩺 Outcomes
 
-🩺 Outcome
+✅ Clean, structured EHR dataset
+✅ Enhanced, high-quality diagnostic images
+✅ AI-generated, structured clinical notes
+✅ Interactive visualization dashboard
+✅ Predictive healthcare insights
+ 
 
-✅ Streamlined medical documentation workflow
-✅ Enhanced clarity of diagnostic images
-✅ Automated, AI-assisted clinical reporting
-✅ Supports structured EHR data management
+
